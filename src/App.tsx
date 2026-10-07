@@ -2,6 +2,8 @@ import { useState, useEffect, useRef } from 'react'
 import emailjs from '@emailjs/browser'
 import profilePhoto from './assets/profile-photo.jpg'
 import sehaScreenshot from './assets/seha-screenshot.png'
+import crmScreenshot from './assets/crm-screenshot.png'
+import ameoraScreenshot from './assets/ameora-screenshot.png'
 
 function useInView(threshold = 0.15) {
   const ref = useRef<HTMLElement>(null)
@@ -82,7 +84,7 @@ function Navbar() {
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-18">
           <button onClick={() => scrollTo('home')} className="font-display font-800 text-xl text-navy tracking-tight">
-            Meryem<span className="text-blue">.</span>
+            Temara Meryem<span className="text-blue">.</span>
           </button>
 
           <div className="hidden md:flex items-center gap-7">
@@ -234,7 +236,7 @@ function QuickProfile() {
     { icon: '💻', label: 'Full Stack Developer', sub: 'React.js · Laravel · PHP' },
     { icon: '🎓', label: 'OFPPT', sub: 'Full Stack Development' },
     { icon: '📍', label: 'Casablanca, Morocco', sub: 'Open to remote' },
-    { icon: '✅', label: 'Available Immediately', sub: 'Ready to join a team' },
+    { icon: '✅', label: 'Open to Opportunities', sub: 'Ready to join a team' },
   ]
   return (
     <div className="bg-slate py-10">
@@ -297,7 +299,7 @@ function About() {
                 { num: '3', label: 'Featured Projects' },
                 { num: '2+', label: 'Years of Study' },
                 { num: '15+', label: 'Technologies' },
-                { num: '1', label: 'Internship' },
+                { num: '2', label: 'Internships' },
               ].map(s => (
                 <div key={s.label} className="bg-white rounded-xl p-4 border border-slate-200/60">
                   <p className="font-display font-800 text-2xl text-blue">{s.num}</p>
@@ -386,59 +388,24 @@ function SEHAMockup() {
 
 function CRMMockup() {
   return (
-    <div className="w-full h-48 bg-gradient-to-br from-slate-800 to-slate-900 rounded-xl overflow-hidden relative select-none">
-      <div className="absolute top-0 left-0 right-0 h-9 bg-white/10 flex items-center px-3 border-b border-white/10">
-        <span className="text-white font-bold text-xs">CRM — MJ Informatique</span>
-        <div className="ml-auto w-20 h-4 bg-white/10 rounded flex items-center px-1.5">
-          <span className="text-white/40 text-[8px]">Search...</span>
-        </div>
-      </div>
-      <div className="absolute top-11 left-3 right-3 bottom-3 grid grid-cols-4 gap-2">
-        {[['32','Clients'],['18','Pending'],['94','Done'],['€ 48k','Revenue']].map(([n,l]) => (
-          <div key={l} className="bg-white/10 rounded-lg p-2">
-            <span className="text-white font-bold text-sm leading-none">{n}</span>
-            <p className="text-white/50 text-[8px] mt-0.5">{l}</p>
-          </div>
-        ))}
-        <div className="col-span-4 bg-white/10 rounded-lg p-2">
-          <p className="text-white/50 text-[8px] mb-1.5 uppercase tracking-wider">Interventions</p>
-          {[['#1042','Installation','In Progress','blue'],['#1041','Support','Done','green'],['#1040','Repair','Pending','yellow']].map(([id,t,s,c]) => (
-            <div key={id} className="flex items-center gap-2 mb-1">
-              <span className="text-white/40 text-[9px]">{id}</span>
-              <span className="text-white/70 text-[9px] flex-1">{t}</span>
-              <span className={`text-[8px] px-1.5 py-0.5 rounded-full ${c==='blue'?'bg-blue/30 text-blue-300':c==='green'?'bg-emerald-500/30 text-emerald-300':'bg-yellow-500/30 text-yellow-300'}`}>{s}</span>
-            </div>
-          ))}
-        </div>
-      </div>
+    <div className="w-full h-48 rounded-xl overflow-hidden bg-white">
+      <img
+        src={crmScreenshot}
+        alt="Capture d’écran du CRM MJ Informatique"
+        className="w-full h-full object-cover object-top"
+      />
     </div>
   )
 }
 
 function AMEORAMockup() {
   return (
-    <div className="w-full h-48 bg-gradient-to-br from-rose-50 to-pink-50 rounded-xl overflow-hidden relative select-none border border-pink-100">
-      <div className="absolute top-0 left-0 right-0 h-9 bg-white/80 flex items-center px-3 border-b border-pink-100">
-        <span className="text-slate-800 font-bold text-xs tracking-widest uppercase">AMEORA</span>
-        <div className="ml-auto flex gap-3">
-          {['Shop','Collections','About'].map(t => <span key={t} className="text-slate-500 text-[9px]">{t}</span>)}
-        </div>
-      </div>
-      <div className="absolute top-11 left-3 right-3 bottom-3 grid grid-cols-3 gap-2">
-        {[
-          {name:'Gold Ring',price:'€ 89',emoji:'💍'},
-          {name:'Pearl Set',price:'€ 145',emoji:'📿'},
-          {name:'Bracelet',price:'€ 67',emoji:'✨'},
-        ].map(p => (
-          <div key={p.name} className="bg-white rounded-lg p-2 border border-pink-100 shadow-sm">
-            <div className="w-full h-12 bg-gradient-to-br from-pink-50 to-rose-100 rounded-md flex items-center justify-center text-xl">
-              {p.emoji}
-            </div>
-            <p className="text-slate-700 text-[9px] font-semibold mt-1.5 leading-tight">{p.name}</p>
-            <p className="text-pink text-[9px] font-bold">{p.price}</p>
-          </div>
-        ))}
-      </div>
+    <div className="w-full h-48 rounded-xl overflow-hidden bg-white">
+      <img
+        src={ameoraScreenshot}
+        alt="Capture d’écran de la boutique AMEORA"
+        className="w-full h-full object-cover object-top"
+      />
     </div>
   )
 }
@@ -461,7 +428,7 @@ function Projects() {
     {
       name: 'CRM — MJ Informatique',
       subtitle: 'Client & Intervention Management',
-      badge: 'Internship · Apr–Jun 2026',
+      badge: 'Internship · Apr–May 2026',
       badgeColor: 'bg-pink-50 text-pink border-pink/20',
       description: 'Developed a web-based CRM application for managing clients and interventions, with a SPA frontend and REST API backend.',
       tech: ['React.js','Laravel','MySQL','Axios','REST API'],
@@ -552,6 +519,29 @@ function Projects() {
 // ─── EXPERIENCE ───────────────────────────────────────────────────────────────
 function Experience() {
   const { ref, visible } = useInView()
+  const experiences = [
+    {
+      title: 'Web Developer — Internship',
+      company: 'ASAO MEDIA',
+      period: 'Oct 2026 – Present',
+      location: 'Casablanca, Morocco · On-site',
+      current: true,
+      description:
+        'As a Web Development Intern at ASAO MEDIA in Casablanca, I contribute to the development and improvement of modern websites. I work with React.js to build responsive and user-friendly interfaces, integrate designs, and improve website functionality and user experience. I also take part in website maintenance and development tasks, using Git and GitHub as part of the development workflow.',
+      tech: ['React.js', 'Responsive Design', 'UI Integration', 'Git', 'GitHub', 'Maintenance'],
+    },
+    {
+      title: 'Full Stack Developer — Internship',
+      company: 'MJ Informatique',
+      period: 'April 2026 – May 2026',
+      location: 'Casablanca, Morocco',
+      current: false,
+      description:
+        'Participated in the development of a CRM application using React.js, Laravel, MySQL, Axios and REST APIs. Worked on frontend development, backend integration, data management, CRUD functionality, dashboard features, search and filtering.',
+      tech: ['React.js', 'Laravel', 'MySQL', 'Axios', 'REST API', 'CRUD', 'Dashboard'],
+    },
+  ]
+
   return (
     <section id="experience" ref={ref} className={`section-fade ${visible?'visible':''} py-24 bg-white`}>
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -562,32 +552,35 @@ function Experience() {
 
         <div className="relative">
           <div className="absolute left-6 top-0 bottom-0 w-px bg-slate-200"/>
-          <div className="relative pl-16">
-            <div className="absolute left-4 top-1 w-5 h-5 rounded-full bg-blue border-4 border-white shadow-md"/>
-            <div className="bg-slate rounded-2xl p-6 lg:p-8 border border-slate-200/60 hover:shadow-md transition-shadow duration-200">
-              <div className="flex flex-wrap items-start justify-between gap-3 mb-4">
-                <div>
-                  <h3 className="font-display font-700 text-lg text-navy">Full Stack Developer — Internship</h3>
-                  <p className="text-blue font-semibold text-sm mt-0.5">MJ Informatique</p>
-                </div>
-                <div className="text-right">
-                  <span className="inline-block px-3 py-1 bg-blue/10 text-blue text-xs font-semibold rounded-full border border-blue/20">
-                    April 2026 – Mai 2026
-                  </span>
-                  <p className="text-slate-500 text-xs mt-1.5 flex items-center gap-1 justify-end">
-                    <span>📍</span> Casablanca, Morocco
-                  </p>
+          <div className="space-y-6">
+            {experiences.map(exp => (
+              <div key={exp.company} className="relative pl-16">
+                <div className={`absolute left-4 top-1 w-5 h-5 rounded-full border-4 border-white shadow-md ${exp.current ? 'bg-blue' : 'bg-slate-300'}`}/>
+                <div className={`bg-slate rounded-2xl p-6 lg:p-8 border hover:shadow-md transition-shadow duration-200 ${exp.current ? 'border-blue/20' : 'border-slate-200/60'}`}>
+                  <div className="flex flex-wrap items-start justify-between gap-3 mb-4">
+                    <div>
+                      <h3 className="font-display font-700 text-lg text-navy">{exp.title}</h3>
+                      <p className="text-blue font-semibold text-sm mt-0.5">{exp.company}</p>
+                    </div>
+                    <div className="text-right">
+                      <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-blue/10 text-blue text-xs font-semibold rounded-full border border-blue/20">
+                        {exp.current && <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"/>}
+                        {exp.period}
+                      </span>
+                      <p className="text-slate-500 text-xs mt-1.5 flex items-center gap-1 justify-end">
+                        <span>📍</span> {exp.location}
+                      </p>
+                    </div>
+                  </div>
+                  <p className="text-slate-600 text-sm leading-relaxed mb-4">{exp.description}</p>
+                  <div className="flex flex-wrap gap-2">
+                    {exp.tech.map(t => (
+                      <span key={t} className="text-xs px-2.5 py-1 bg-white border border-slate-200 text-slate-600 rounded-lg">{t}</span>
+                    ))}
+                  </div>
                 </div>
               </div>
-              <p className="text-slate-600 text-sm leading-relaxed mb-4">
-                Participated in the development of a CRM application using React.js, Laravel, MySQL, Axios and REST APIs. Worked on frontend development, backend integration, data management, CRUD functionality, dashboard features, search and filtering.
-              </p>
-              <div className="flex flex-wrap gap-2">
-                {['React.js','Laravel','MySQL','Axios','REST API','CRUD','Dashboard'].map(t => (
-                  <span key={t} className="text-xs px-2.5 py-1 bg-white border border-slate-200 text-slate-600 rounded-lg">{t}</span>
-                ))}
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>
