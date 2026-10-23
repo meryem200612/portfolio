@@ -748,10 +748,11 @@ function Contact() {
 
     try {
       await emailjs.send(serviceId, templateId, {
-        from_name: form.name,
-        from_email: form.email,
-        subject: form.subject,
+        name: form.name,
+        email: form.email,
+        title: form.subject,
         message: form.message,
+        time: new Date().toLocaleString(),
       }, { publicKey })
 
       setSent(true)
